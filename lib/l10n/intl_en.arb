@@ -2,5 +2,11 @@
     "signupTitle" : "Sign Up for CloseTok",
     "signupDesc" : "Create a profile, follow other accounts, make your own videos. and more.",
     "signupWithEmail" : "Use Email",
-    "signupWithGoogle" : "Continue with Google"
+    "signupWithGoogle" : "Continue with Google",
+    "signupBottomText" : "By Countinuing, you agree to our Teams",
+    "signupLoginNoti" : "Already have an account?",
+    "signupLoginBtn" : "Login In",
+
+    "loginTitle" : "Log in for CloseTok",
+    "loginDesc" : "Manage your Account .."
 }

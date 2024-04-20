@@ -3,12 +3,15 @@ import 'dart:io';
 import 'package:closetok/generated/l10n.dart';
 import 'package:closetok/src/constants/gaps.dart';
 import 'package:closetok/src/constants/sizes.dart';
-import 'package:closetok/src/features/signup/username_screen.dart';
-import 'package:closetok/src/features/signup/widgets/icon_box.dart';
+import 'package:closetok/src/features/authentification/login_screen.dart';
+import 'package:closetok/src/features/authentification/username_screen.dart';
+import 'package:closetok/src/features/authentification/widgets/auth_box_button.dart';
+import 'package:closetok/src/features/authentification/widgets/auth_container.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 /// 회원가입 화면
@@ -66,6 +69,14 @@ class _SignupScreenState extends State<SignupScreen> {
     bannerAd.load();
   }
 
+  /// 로그인 버튼 클릭
+  void _onLoginTap() {
+    if (kDebugMode) {
+      print('_onLoginTap');
+      context.pushNamed(LoginScreen.routeName);
+    }
+  }
+
   @override
   void dispose() {
     _bannerAd?.dispose();
@@ -80,6 +91,57 @@ class _SignupScreenState extends State<SignupScreen> {
     return Localizations.override(
       context: context,
       // locale: const Locale("ko", "KR"),
+      child: AuthContainer(
+        title: TEXT.signupTitle,
+        subtitle: TEXT.signupDesc,
+        authWidgetList: [
+          AuthBoxButton(
+            text: TEXT.signupWithEmail,
+            icon: FontAwesomeIcons.user,
+            onTap: () {
+              if (kDebugMode) {
+                print('Tab Email');
+              }
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const UsernameScreen(),
+                ),
+              );
+            },
+          ),
+          Gaps.v10,
+          AuthBoxButton(
+            text: TEXT.signupWithGoogle,
+            icon: FontAwesomeIcons.google,
+            onTap: () {
+              if (kDebugMode) {
+                print('Tap google');
+              }
+            },
+          ),
+        ],
+        bottomText: TEXT.signupBottomText,
+        bottomWidget: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(TEXT.signupLoginNoti),
+            Gaps.h5,
+            GestureDetector(
+              onTap: _onLoginTap,
+              child: Text(
+                TEXT.signupLoginBtn,
+                style: TextStyle(
+                  color: theme.primaryColor,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavBarWidget: _isLoadAd ? AdWidget(ad: _bannerAd!) : null,
+      ),
+      /*
       child: Scaffold(
         body: SafeArea(
           child: SizedBox(
@@ -108,7 +170,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       Gaps.v40,
                       // 회원가입 방식
-                      IconBox(
+                      AuthBoxButton(
                         text: TEXT.signupWithEmail,
                         icon: FontAwesomeIcons.user,
                         onTap: () {
@@ -124,7 +186,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                       ),
                       Gaps.v10,
-                      IconBox(
+                      AuthBoxButton(
                         text: TEXT.signupWithGoogle,
                         icon: FontAwesomeIcons.google,
                         onTap: () {
@@ -160,7 +222,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           const Text("Already have an account?"),
                           Gaps.h5,
                           GestureDetector(
-                            onTap: () {},
+                            onTap: _onLoginTap,
                             child: Text(
                               "Log In",
                               style: TextStyle(
@@ -180,6 +242,7 @@ class _SignupScreenState extends State<SignupScreen> {
         bottomNavigationBar:
             _isLoadAd ? AdWidget(ad: _bannerAd!) : const SizedBox(),
       ),
+      */
     );
   }
 }

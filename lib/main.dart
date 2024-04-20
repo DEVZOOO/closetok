@@ -5,7 +5,7 @@ import 'package:closetok/src/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
@@ -25,15 +25,21 @@ class Closetok extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: "Closetok",
+      title: "CloseTok",
       routerConfig: router,
       theme: ThemeData(
         primaryColor: const Color(0xffF26B8F),
-        textTheme: GoogleFonts.lailaTextTheme(),
+        disabledColor: Colors.grey.shade400,
+        hintColor: Colors.grey.shade600,
+        dividerColor: Colors.grey.shade200,
+        // textTheme: GoogleFonts.loraTextTheme(),,
       ),
       darkTheme: ThemeData(
         primaryColor: const Color(0xffF26B8F),
-        textTheme: GoogleFonts.lailaTextTheme(),
+        disabledColor: Colors.grey.shade400,
+        hintColor: Colors.grey.shade600,
+        dividerColor: Colors.grey.shade200,
+        // textTheme: GoogleFonts.loraTextTheme(),
       ),
       themeMode: ThemeMode.system,
       localizationsDelegates: const [

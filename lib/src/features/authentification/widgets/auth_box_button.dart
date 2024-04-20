@@ -2,11 +2,11 @@ import 'package:closetok/src/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class IconBox extends StatelessWidget {
+class AuthBoxButton extends StatelessWidget {
   final String text;
   final IconData icon;
   final Function() onTap;
-  const IconBox({
+  const AuthBoxButton({
     super.key,
     required this.text,
     required this.icon,
@@ -15,7 +15,7 @@ class IconBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
 
     return GestureDetector(
       onTap: onTap,
@@ -28,7 +28,7 @@ class IconBox extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.grey.shade400,
+              color: theme.disabledColor,
             ),
             borderRadius: BorderRadius.circular(Sizes.size3),
           ),
@@ -41,7 +41,7 @@ class IconBox extends StatelessWidget {
                 child: Center(
                   child: Text(
                     text,
-                    style: textTheme.bodyMedium?.copyWith(
+                    style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.w700,
                     ),
                   ),
