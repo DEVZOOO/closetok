@@ -4,6 +4,14 @@
 
 ## Change Log
 
+### 24.04.20
+- 회원가입 화면 구현
+    - 로그인화면으로 네비게이션
+    - 이름 화면 구현
+    - 이메일 화면 구현
+    - 비밀번호 화면 구현
+- 로그인화면 구현
+
 ### 24.04.19
 - Initialize
 - 패키지 설치
@@ -25,4 +33,5 @@
     - [intl](https://pub.dev/packages/intl)
 - google ads 셋팅
     - google_mobile_ads
+- 회원가입 화면 구현
 
