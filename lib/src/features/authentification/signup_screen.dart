@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:closetok/generated/l10n.dart';
 import 'package:closetok/src/constants/gaps.dart';
-import 'package:closetok/src/constants/sizes.dart';
 import 'package:closetok/src/features/authentification/login_screen.dart';
 import 'package:closetok/src/features/authentification/username_screen.dart';
 import 'package:closetok/src/features/authentification/widgets/auth_box_button.dart';

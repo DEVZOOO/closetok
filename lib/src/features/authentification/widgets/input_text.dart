@@ -1,13 +1,12 @@
-import 'package:closetok/src/constants/gaps.dart';
 import 'package:closetok/src/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// input text
 class InputText extends StatelessWidget {
   final TextEditingController controller;
   final String? hintText;
   final bool isHide;
+  final bool isReadonly;
   final TextInputType? keyboardType;
   final Widget? suffixWidget;
 
@@ -16,6 +15,7 @@ class InputText extends StatelessWidget {
     required this.controller,
     this.hintText,
     this.isHide = false,
+    this.isReadonly = false,
     this.keyboardType,
     this.suffixWidget,
   });
@@ -31,23 +31,24 @@ class InputText extends StatelessWidget {
         ),
         hintText: hintText,
         hintStyle: theme.textTheme.bodyLarge?.copyWith(
-          color: theme.disabledColor,
+          color: theme.hintColor,
         ),
         suffix: suffixWidget,
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: theme.disabledColor,
+            color: theme.hintColor,
           ),
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: theme.disabledColor,
+            color: theme.hintColor,
           ),
         ),
       ),
       cursorColor: theme.primaryColor,
       autofocus: true,
       obscureText: isHide,
+      readOnly: isReadonly,
       keyboardType: keyboardType,
     );
   }

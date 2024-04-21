@@ -1,20 +1,23 @@
 import 'package:closetok/src/constants/gaps.dart';
 import 'package:closetok/src/constants/sizes.dart';
+import 'package:closetok/src/features/authentification/birthday_screen.dart';
+import 'package:closetok/src/features/authentification/view_models/signup_view_model.dart';
 import 'package:closetok/src/features/authentification/widgets/input_text.dart';
 import 'package:closetok/src/features/authentification/widgets/signup_container.dart';
 import 'package:closetok/src/features/authentification/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// 3. 비밀번호 입력
-class PasswordScreen extends StatefulWidget {
+class PasswordScreen extends ConsumerStatefulWidget {
   const PasswordScreen({super.key});
 
   @override
-  State<PasswordScreen> createState() => _PasswordScreenState();
+  ConsumerState<PasswordScreen> createState() => _PasswordScreenState();
 }
 
-class _PasswordScreenState extends State<PasswordScreen> {
+class _PasswordScreenState extends ConsumerState<PasswordScreen> {
   final TextEditingController _controller = TextEditingController();
   String _password = "";
   bool _isShow = false;
@@ -51,6 +54,18 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
     _isValidLen = _password != "" && lenReg.hasMatch(_password);
     _isValidCh = chReg.hasMatch(_password);
+  }
+
+  /// 다음 버튼
+  void _onNextTap() {
+    ref.read(signupProvider.notifier).setPassword(_password);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const BirthdayScreen(),
+      ),
+    );
   }
 
   @override
@@ -129,7 +144,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
         Gaps.v40,
         SubmitButton(
           text: "다음",
-          onTap: null,
+          onTap: _onNextTap,
           bgColor: _isValidLen && _isValidCh
               ? theme.primaryColor
               : theme.disabledColor,

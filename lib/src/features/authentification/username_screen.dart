@@ -1,20 +1,22 @@
 import 'package:closetok/src/constants/gaps.dart';
 import 'package:closetok/src/features/authentification/email_screen.dart';
+import 'package:closetok/src/features/authentification/view_models/signup_view_model.dart';
 import 'package:closetok/src/features/authentification/widgets/input_text.dart';
 import 'package:closetok/src/features/authentification/widgets/signup_container.dart';
 import 'package:closetok/src/features/authentification/widgets/submit_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// 1. 이름 입력
-class UsernameScreen extends StatefulWidget {
+class UsernameScreen extends ConsumerStatefulWidget {
   const UsernameScreen({super.key});
 
   @override
-  State<UsernameScreen> createState() => _UsernameScreenState();
+  ConsumerState<UsernameScreen> createState() => _UsernameScreenState();
 }
 
-class _UsernameScreenState extends State<UsernameScreen> {
+class _UsernameScreenState extends ConsumerState<UsernameScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   String _name = "";
   bool _isWriting = false;
@@ -38,6 +40,8 @@ class _UsernameScreenState extends State<UsernameScreen> {
     if (kDebugMode) {
       print('name : $_name');
     }
+
+    ref.read(signupProvider.notifier).setUsername(_name);
 
     Navigator.push(
       context,

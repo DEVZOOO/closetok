@@ -5,6 +5,7 @@ import 'package:closetok/src/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -16,7 +17,11 @@ void main() async {
   // google ads
   unawaited(MobileAds.instance.initialize());
 
-  runApp(const Closetok());
+  runApp(
+    const ProviderScope(
+      child: Closetok(),
+    ),
+  );
 }
 
 class Closetok extends StatelessWidget {
@@ -28,18 +33,28 @@ class Closetok extends StatelessWidget {
       title: "CloseTok",
       routerConfig: router,
       theme: ThemeData(
+        brightness: Brightness.light,
         primaryColor: const Color(0xffF26B8F),
-        disabledColor: Colors.grey.shade400,
-        hintColor: Colors.grey.shade600,
+        disabledColor: Colors.grey.shade300,
+        secondaryHeaderColor: Colors.grey.shade600,
+        hintColor: Colors.grey.shade400,
         dividerColor: Colors.grey.shade200,
-        // textTheme: GoogleFonts.loraTextTheme(),,
+        textTheme: Typography.blackCupertino,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+        ),
       ),
       darkTheme: ThemeData(
+        brightness: Brightness.dark,
         primaryColor: const Color(0xffF26B8F),
-        disabledColor: Colors.grey.shade400,
+        disabledColor: Colors.grey.shade700,
+        secondaryHeaderColor: Colors.grey.shade400,
         hintColor: Colors.grey.shade600,
-        dividerColor: Colors.grey.shade200,
-        // textTheme: GoogleFonts.loraTextTheme(),
+        dividerColor: Colors.grey.shade800,
+        textTheme: Typography.whiteCupertino,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black12,
+        ),
       ),
       themeMode: ThemeMode.system,
       localizationsDelegates: const [

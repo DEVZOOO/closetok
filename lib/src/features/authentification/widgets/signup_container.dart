@@ -6,13 +6,17 @@ import 'package:flutter/material.dart';
 class SignupContainer extends StatelessWidget {
   final String title;
   final String? subtitle;
+  final Widget? titleIconWidget;
   final List<Widget> children;
+  final Widget? bottomChild;
 
   const SignupContainer({
     super.key,
     required this.title,
     this.subtitle,
+    this.titleIconWidget,
     required this.children,
+    this.bottomChild,
   });
 
   @override
@@ -37,22 +41,33 @@ class SignupContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Gaps.v40,
-                Text(
-                  title,
-                  style: theme.textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
 
-                if (subtitle != null) ...[
-                  Gaps.v10,
-                  Text(
-                    subtitle!,
-                    style: TextStyle(
-                      color: theme.hintColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          title,
+                          style: theme.textTheme.headlineSmall?.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        if (subtitle != null) ...[
+                          Gaps.v10,
+                          Text(
+                            subtitle!,
+                            style: TextStyle(
+                              color: theme.secondaryHeaderColor,
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
-                  ),
-                ],
+                    if (titleIconWidget != null) titleIconWidget!,
+                  ],
+                ),
 
                 Gaps.v20,
 
@@ -62,6 +77,7 @@ class SignupContainer extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: bottomChild,
     );
   }
 }

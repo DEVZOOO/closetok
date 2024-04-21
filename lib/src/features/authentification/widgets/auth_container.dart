@@ -61,7 +61,7 @@ class AuthContainer extends StatelessWidget {
                       subtitle,
                       textAlign: TextAlign.center,
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.hintColor,
+                        color: theme.secondaryHeaderColor,
                       ),
                     ),
                     Gaps.v40,
@@ -79,10 +79,10 @@ class AuthContainer extends StatelessWidget {
                       bottom: Sizes.size40,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
+                      color: theme.dividerColor,
                       border: Border(
                         top: BorderSide(
-                          color: Colors.grey.shade100,
+                          color: theme.dividerColor,
                           width: .5,
                         ),
                       ),

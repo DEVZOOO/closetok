@@ -33,6 +33,7 @@ class SubmitButton extends StatelessWidget {
           text,
           style: theme.textTheme.labelLarge?.copyWith(
             color: Colors.white,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
