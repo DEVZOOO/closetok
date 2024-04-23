@@ -1,8 +1,12 @@
 # Closetok
 
-가까운 사이, 우리만 아는 SNS
+가까운 사이, 우리만의 SNS
 
 ## Change Log
+
+### 24.04.23
+- interests 화면 구현
+- tutorial 화면 구현
 
 ### 24.04.21
 - 회원가입 화면 구현
