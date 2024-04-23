@@ -14,7 +14,7 @@ void main() async {
 
   await dotenv.load(fileName: ".env");
 
-  // google ads
+  // google AdMob
   unawaited(MobileAds.instance.initialize());
 
   runApp(
@@ -42,7 +42,14 @@ class Closetok extends StatelessWidget {
         textTheme: Typography.blackCupertino,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
         ),
+        bottomAppBarTheme: const BottomAppBarTheme(
+          surfaceTintColor: Colors.white,
+          color: Colors.white,
+        ),
+        colorScheme: const ColorScheme.light(),
+        useMaterial3: true,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
@@ -54,7 +61,14 @@ class Closetok extends StatelessWidget {
         textTheme: Typography.whiteCupertino,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black12,
+          surfaceTintColor: Colors.black12,
         ),
+        bottomAppBarTheme: const BottomAppBarTheme(
+          surfaceTintColor: Colors.black12,
+          color: Colors.black12,
+        ),
+        colorScheme: const ColorScheme.dark(),
+        useMaterial3: true,
       ),
       themeMode: ThemeMode.system,
       localizationsDelegates: const [
