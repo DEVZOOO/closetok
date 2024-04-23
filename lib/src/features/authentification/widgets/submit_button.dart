@@ -6,12 +6,16 @@ class SubmitButton extends StatelessWidget {
   final String text;
   final Function()? onTap;
   final Color bgColor;
+  final Color? color;
+  final Color? borderColor;
 
   const SubmitButton({
     super.key,
     required this.text,
-    required this.onTap,
+    this.onTap,
+    this.color = Colors.white,
     required this.bgColor,
+    this.borderColor,
   });
 
   @override
@@ -26,13 +30,18 @@ class SubmitButton extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: bgColor,
+          border: borderColor != null
+              ? Border.all(
+                  color: borderColor!,
+                )
+              : null,
           borderRadius: BorderRadius.circular(Sizes.size3),
         ),
         alignment: Alignment.center,
         child: Text(
           text,
           style: theme.textTheme.labelLarge?.copyWith(
-            color: Colors.white,
+            color: color,
             fontWeight: FontWeight.w600,
           ),
         ),
