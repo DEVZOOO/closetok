@@ -22,7 +22,6 @@ class _BirthdayScreenState extends ConsumerState<BirthdayScreen> {
   late final DateTime initTime =
       DateTime(nowDate.year - 12, nowDate.month, nowDate.day);
   final TextEditingController _controller = TextEditingController();
-  final bool _isLoading = false;
 
   @override
   void initState() {
@@ -36,7 +35,7 @@ class _BirthdayScreenState extends ConsumerState<BirthdayScreen> {
   /// 다음 버튼
   void _onNextTap() async {
     ref.read(signupProvider.notifier).setBirthday(_controller.text);
-    ref.read(signupProvider.notifier).signup();
+    ref.read(signupProvider.notifier).signup(context);
   }
 
   @override
@@ -61,13 +60,13 @@ class _BirthdayScreenState extends ConsumerState<BirthdayScreen> {
         ),
       ),
       children: [
-        Gaps.v40,
         InputText(
           controller: _controller,
           isReadonly: true,
         ),
+        Gaps.v40,
         SubmitButton(
-          text: ref.watch(signupProvider).isLoading ? "Loading..." : "Next",
+          text: ref.watch(signupProvider).isLoading ? "Loading..." : "다음",
           onTap: ref.watch(signupProvider).isLoading ? null : _onNextTap,
           bgColor: ref.watch(signupProvider).isLoading
               ? theme.disabledColor
