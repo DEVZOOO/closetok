@@ -2,9 +2,15 @@ import 'package:closetok/src/constants/gaps.dart';
 import 'package:closetok/src/constants/sizes.dart';
 import 'package:closetok/src/features/authentification/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Tutorial2Screen extends StatelessWidget {
   const Tutorial2Screen({super.key});
+
+  /// 다음버튼
+  void _onNextTap(BuildContext context) {
+    context.go("/video");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +51,7 @@ class Tutorial2Screen extends StatelessWidget {
 
           SubmitButton(
             text: "Start watching",
+            onTap: () => _onNextTap(context),
             bgColor: theme.primaryColor,
           ),
         ],

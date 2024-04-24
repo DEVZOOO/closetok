@@ -1,5 +1,6 @@
 import 'package:closetok/src/features/authentification/login_screen.dart';
 import 'package:closetok/src/features/authentification/signup_screen.dart';
+import 'package:closetok/src/features/main_navigation/main_navigation_screen.dart';
 import 'package:closetok/src/features/onboarding/interests_screen.dart';
 import 'package:closetok/src/features/onboarding/tutorial_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -47,6 +48,14 @@ final router = GoRouter(
           path: TutorialScreen.routeUrl,
           name: TutorialScreen.routeName,
           builder: (context, state) => const TutorialScreen(),
+        ),
+
+        GoRoute(
+          path: "/:tab(video|discover|inbox|profile)",
+          builder: (context, state) {
+            final tab = state.pathParameters['tab']!;
+            return MainNavigationScreen(tab: tab);
+          },
         ),
       ],
     ),
