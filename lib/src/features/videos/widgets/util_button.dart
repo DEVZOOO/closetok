@@ -18,6 +18,7 @@ class UtilButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
