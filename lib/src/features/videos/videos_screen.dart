@@ -1,5 +1,6 @@
 import 'package:closetok/src/constants/gaps.dart';
 import 'package:closetok/src/constants/sizes.dart';
+import 'package:closetok/src/features/videos/widgets/comments.dart';
 import 'package:closetok/src/features/videos/widgets/util_button.dart';
 import 'package:closetok/src/features/videos/widgets/video_post.dart';
 import 'package:flutter/foundation.dart';
@@ -152,9 +153,17 @@ class _VideosScreenState extends State<VideosScreen> {
                 Gaps.v20,
 
                 // 댓글
-                const UtilButton(
+                UtilButton(
                   text: "33.0K",
                   icon: FontAwesomeIcons.solidComment,
+                  onTap: () {
+                    showBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return const Comments();
+                      },
+                    );
+                  },
                 ),
 
                 Gaps.v20,
