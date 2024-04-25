@@ -35,6 +35,7 @@ class MainNavigationScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Offstage(
@@ -62,14 +63,14 @@ class MainNavigationScreen extends StatelessWidget {
                 text: "Home",
                 icon: FontAwesomeIcons.house,
                 isFocus: _tabIndex == 0,
-                onTap: () => context.go("/video"),
+                onTap: () => context.go("/${_tabList[0]}"),
               ),
               Gaps.h12,
               NavMenu(
                 text: "Discover",
                 icon: FontAwesomeIcons.magnifyingGlass,
                 isFocus: _tabIndex == 1,
-                onTap: () => context.go("/discover"),
+                onTap: () => context.go("/${_tabList[1]}"),
               ),
               Gaps.h24,
               const PostButton(),
@@ -78,14 +79,14 @@ class MainNavigationScreen extends StatelessWidget {
                 text: "Inbox",
                 icon: FontAwesomeIcons.message,
                 isFocus: _tabIndex == 3,
-                onTap: () {},
+                onTap: () => context.go("/${_tabList[3]}"),
               ),
               Gaps.h12,
               NavMenu(
                 text: "Profile",
                 icon: FontAwesomeIcons.user,
                 isFocus: _tabIndex == 4,
-                onTap: () {},
+                onTap: () => context.go("/${_tabList[4]}"),
               ),
             ],
           ),
