@@ -27,6 +27,7 @@ class Tutorial1Screen extends StatelessWidget {
             ),
           ),
           Gaps.v60,
+
           // Image
           Expanded(
             child: SizedBox(
@@ -37,6 +38,10 @@ class Tutorial1Screen extends StatelessWidget {
               ),
             ),
           ),
+
+          Gaps.v60,
+
+          Gaps.v48,
         ],
       ),
     );
