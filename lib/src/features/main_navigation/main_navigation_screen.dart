@@ -55,7 +55,7 @@ class MainNavigationScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: Sizes.size12,
           ),
-          height: 62,
+          height: 48,
           child: Row(
             children: [
               NavMenu(
