@@ -7,7 +7,8 @@ import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
   // initialLocation: SignupScreen.routeUrl,
-  initialLocation: TutorialScreen.routeUrl,
+  // initialLocation: TutorialScreen.routeUrl,
+  initialLocation: "/video",
   routes: [
     ShellRoute(
       builder: (context, GoRouterState state, child) {
