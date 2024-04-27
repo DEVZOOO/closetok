@@ -4,14 +4,21 @@
 
 ## Change Log
 
+### 24.04.26
+- 메인 영상 구현 `진행중`
+    - 댓글 구현 `진행중`
+        - 댓글 model 생성
+        - 댓글 화면 구현
+    - 영상 위 유틸들 video_post로 이동
+
 ### 24.04.25
 - 패키지 설치
     - [video_player](https://pub.dev/packages/video_player)
     - [visibility_detector](https://pub.dev/packages/visibility_detector)
-- 메인 영상 화면 구현 `진행중`
+- 메인 영상 구현 `진행중`
     - 영상 재생
     - 무한 스크롤링 구현
-    - 댓글 화면 구현 `진행중`
+    - 댓글 구현 `진행중`
 
 ### 24.04.24
 - 메인 네비게이션 구현
